@@ -1,12 +1,16 @@
-const express = require('express')
-const router = express.Router()
-const authController = require('../controllers/authController')
+const { Router } = require('express');
+const path = require('path');
 
-router.route('/signup').post(authController.signup_post)
+const router = Router();
 
-router.route('/getUser').get(function (req, res, next) {
-    res.end('Hello World')
-})
-router.post('/login', authController.login_post)
+// Serve the registration page
+router.get('/register', (req, res) => {
+    res.sendFile(path.join(__dirname, '../../frontend/register.js'));
+});
 
-module.exports = router
+// Serve the login page
+router.get('/login', (req, res) => {
+    res.sendFile(path.join(__dirname, '../../frontend/src/'));
+});
+
+module.exports = router;
