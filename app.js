@@ -4,7 +4,9 @@ const app = express()
 const cookieParser = require('cookie-parser')
 const authRoute = require('./routes/index')
 const bodyParser = require('body-parser')
+const cors = require('cors')
 
+app.use(cors())
 app.use(bodyParser.json())
 app.use(express.static('public'))
 app.use('/', authRoute)
@@ -15,5 +17,5 @@ const dbURI =
     'mongodb+srv://soprano:Omarajimiii@cluster0.wktz9qc.mongodb.net/?retryWrites=true&w=majority'
 mongoose
     .connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(result => app.listen(3000))
+    .then(result => app.listen(3001))
     .catch(err => console.log(err))
