@@ -17,5 +17,10 @@ const dbURI =
     'mongodb+srv://soprano:Omarajimiii@cluster0.wktz9qc.mongodb.net/?retryWrites=true&w=majority'
 mongoose
     .connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(result => app.listen(3001))
-    .catch(err => console.log(err))
+    .then(() => {
+        console.log("Connected to the database");
+        app.listen(3001, () => {
+            console.log("Server is running on port 3001");
+        });
+    })
+    .catch(err => console.error("Error connecting to the database:", err));

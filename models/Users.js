@@ -1,3 +1,5 @@
+
+
 const mongoose = require('mongoose')
 const { isEmail } = require('validator')
 const bcrypt = require('bcrypt')
@@ -10,6 +12,11 @@ const userSchema = new mongoose.Schema({
         lowercase: true,
         validate: [isEmail, 'please enter a valid email'],
     },
+    role : {
+        type : String,
+        enum : ['admin' ,'user'],
+        default: 'user'
+        },
     password: {
         type: String,
         required: [true, 'please enter a password'],

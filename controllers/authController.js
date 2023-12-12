@@ -43,9 +43,9 @@ const createToken = id => {
 
 exports.signup_post = async (req, res) => {
     console.log('body ', req.body)
-    const { email, password } = req.body
+    const { email, password ,role } = req.body
     try {
-        const user = await User.create({ email, password })
+        const user = await User.create({ email, password, role })
         const token = createToken(user._id)
         res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 })
         res.status(201).json({ user: user._id })
