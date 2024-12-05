@@ -20,3 +20,14 @@ A secure and scalable implementation of JSON Web Token (JWT) authentication usin
    ```bash
    git clone https://github.com/omar41101/JWT-Auth.git
    cd JWT-Auth
+
+## Install depandencies
+  ```bash
+   npm install
+
+
+## Create a .env file in the root directory and configure the following environment variables:
+PORT=3000
+JWT_SECRET=your_secret_key
+JWT_EXPIRY=1h
+ 
