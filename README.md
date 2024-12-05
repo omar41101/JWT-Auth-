@@ -24,10 +24,4 @@ A secure and scalable implementation of JSON Web Token (JWT) authentication usin
 ## Install depandencies
   ```bash
    npm install
-
-
-## Create a .env file in the root directory and configure the following environment variables:
-PORT=3000
-JWT_SECRET=your_secret_key
-JWT_EXPIRY=1h
  
